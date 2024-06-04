@@ -1,4 +1,4 @@
-# Pareto Chart Example Tutorial
+# Pareto Chart Tutorial (Example)
 
 This tutorial demonstrates how to create Pareto charts using Python libraries like pandas, NumPy, and Matplotlib.
 
@@ -46,3 +46,90 @@ ax.table(cellText=df.values, colLabels=df.columns, cellLoc='center', loc='center
 plt.title('Defects Frequency')
 plt.show()
 ```
+### Sort Data in Descending Order:
+```
+# Sort DataFrame by frequency (descending)
+df_sorted = df.sort_values(by=['Frequency'], ascending=False)
+
+# Print sorted data
+print("\nData sorted by Frequency (descending):")
+print(df_sorted.to_string(index=False))
+
+# Create a table with the sorted data
+fig, ax = plt.subplots()
+ax.axis('off')
+ax.axis('tight')
+ax.table(cellText=df_sorted.values, colLabels=df_sorted.columns, cellLoc='center', loc='center', colLoc='center')
+plt.title('Defects Frequency (sorted)')
+plt.show()
+```
+### Calculate Cumulative Percentage:
+```
+# Calculate cumulative sum of frequencies
+df_sorted['Cumulative Percentage'] = df_sorted['Frequency'].cumsum() / df_sorted['Frequency'].sum() * 100
+
+# Print data with cumulative percentages
+print("\nData with Cumulative Percentages:")
+print(df_sorted.to_string(index=False))
+
+# Create a table with the data and cumulative percentages
+fig, ax = plt.subplots()
+ax.axis('off')
+ax.axis('tight')
+ax.table(cellText=df_sorted.values, colLabels=df_sorted.columns, cellLoc='center', loc='center', colLoc='center')
+plt.title('Defects Frequency (sorted) with Cumulative Percentages')
+plt.show()
+```
+
+### Create Pareto Chart:
+
+```
+# Create the figure and subplots
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 6))
+
+# Bar chart for frequencies on primary axis (ax1)
+ax1.bar(df_sorted['Category'], df_sorted['Frequency'], color='skyblue')
+ax1.set_xlabel('Category')
+ax1.set_ylabel('Frequency')
+ax1.set_title('Frequency of Defects')
+
+# Line chart for cumulative percentages on secondary axis (ax2)
+ax2.plot(df_sorted['Category'], df_sorted['Cumulative Percentage'], color='red', marker='o', linestyle='-')
+ax2.set_xlabel('Category')
+ax2.set_ylabel('Cumulative Percentage (%)')
+ax2.set_title('Cumulative Percentage of Defects')
+
+# Set y-axis limits for cumulative percentages (0 to 100%)
+ax2.set_ylim(0, 100)
+
+# Rotate x-axis labels for better readability
+plt.setp(ax1.xaxis.get_majorticklabels(), rotation=45)
+plt.setp(ax2.xaxis.get_majorticklabels(), rotation=45)
+
+# Display the plots
+plt.tight_layout()
+plt.show()
+
+# Plot the bar chart with the frequencies and cummulative percentages
+fig, ax1 = plt.subplots(figsize=(10, 6))
+ax2 = ax1.twinx()
+ax1.bar(df_sorted['Category'], df_sorted['Frequency'], color='skyblue')
+ax2.plot(df_sorted['Category'], df_sorted['Cumulative Percentage'], color='red', marker='o', linestyle='-')
+ax1.set_xlabel('Category')
+ax1.set_ylabel('Frequency')
+ax2.set_ylabel('Cumulative Percentage (%)')
+ax1.set_title('Frequency and Cumulative Percentage of Defects')
+plt.setp(ax1.xaxis.get_majorticklabels(), rotation=45)
+plt.show()
+```
+
+This will give you a chart similar to the one given below:
+![defects_frequency_cumulative_percentage_merged](https://github.com/HasanYahya101/Pareto-Tutorial-Python/assets/118683092/1321b072-9b53-40e6-b838-694342fc4220)
+
+After that you can also save the image in an output file (such as png or jpeg).
+
+Note: All code for this is given in the __Jupyter Notebook__.
+
+## License:
+
+This repository is under the __MIT License__.
