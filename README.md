@@ -128,7 +128,8 @@ This will give you a chart similar to the one given below:
 
 After that you can also save the image in an output file (such as png or jpeg).
 
-Note: All code for this is given in the __Jupyter Notebook__.
+### Note: 
+All code for this is given in the __Jupyter Notebook__.
 
 ## License:
 
