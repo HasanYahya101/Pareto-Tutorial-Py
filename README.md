@@ -1,4 +1,4 @@
-# Pareto Chart Tutorial (Example)
+# Pareto Chart Tutorial (Example):
 
 This tutorial demonstrates how to create Pareto charts using Python libraries like pandas, NumPy, and Matplotlib.
 
