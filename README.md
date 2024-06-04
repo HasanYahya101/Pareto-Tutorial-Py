@@ -47,7 +47,7 @@ plt.title('Defects Frequency')
 plt.show()
 ```
 ### Sort Data in Descending Order:
-```
+```py
 # Sort DataFrame by frequency (descending)
 df_sorted = df.sort_values(by=['Frequency'], ascending=False)
 
@@ -64,7 +64,7 @@ plt.title('Defects Frequency (sorted)')
 plt.show()
 ```
 ### Calculate Cumulative Percentage:
-```
+```py
 # Calculate cumulative sum of frequencies
 df_sorted['Cumulative Percentage'] = df_sorted['Frequency'].cumsum() / df_sorted['Frequency'].sum() * 100
 
@@ -83,7 +83,7 @@ plt.show()
 
 ### Create Pareto Chart:
 
-```
+```py
 # Create the figure and subplots
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 6))
 
