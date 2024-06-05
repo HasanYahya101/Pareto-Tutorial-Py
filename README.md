@@ -124,6 +124,7 @@ plt.show()
 ```
 
 This will give you a chart similar to the one given below:
+
 ![defects_frequency_cumulative_percentage_merged](https://github.com/HasanYahya101/Pareto-Tutorial-Python/assets/118683092/1321b072-9b53-40e6-b838-694342fc4220)
 
 After that you can also save the image in an output file (such as png or jpeg).
